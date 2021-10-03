@@ -1,0 +1,259 @@
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Create (77.6ms)[0m  [1m[32mINSERT INTO "subjects" ("name", "position", "visible", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "first subject"], ["position", 1], ["visible", true], ["created_at", "2021-09-30 18:50:26.175829"], ["updated_at", "2021-09-30 18:50:26.175829"]]
+  [1m[36mTRANSACTION (24.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Create (0.4ms)[0m  [1m[32mINSERT INTO "subjects" ("name", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Second Subject"], ["position", 2], ["created_at", "2021-09-30 18:54:50.351447"], ["updated_at", "2021-09-30 18:54:50.351447"]]
+  [1m[36mTRANSACTION (81.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (26.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Update (1.7ms)[0m  [1m[33mUPDATE "subjects" SET "name" = $1, "updated_at" = $2 WHERE "subjects"."id" = $3[0m  [["name", "Initial Subject"], ["updated_at", "2021-10-01 05:20:39.333822"], ["id", 1]]
+  [1m[36mTRANSACTION (85.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Update (0.3ms)[0m  [1m[33mUPDATE "subjects" SET "name" = $1, "visible" = $2, "updated_at" = $3 WHERE "subjects"."id" = $4[0m  [["name", "Next Subject"], ["visible", true], ["updated_at", "2021-10-01 05:34:51.193020"], ["id", 2]]
+  [1m[36mTRANSACTION (59.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Create (454.7ms)[0m  [1m[32mINSERT INTO "subjects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bad Subject"], ["created_at", "2021-10-01 05:39:32.496247"], ["updated_at", "2021-10-01 05:39:32.496247"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Destroy (1.1ms)[0m  [1m[31mDELETE FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (52.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Create (0.6ms)[0m  [1m[32mINSERT INTO "subjects" ("name", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Third Subject"], ["position", 3], ["created_at", "2021-10-01 05:53:45.824127"], ["updated_at", "2021-10-01 05:53:45.824127"]]
+  [1m[36mTRANSACTION (22.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."name" = $1 LIMIT $2[0m  [["name", "Initial Subject"], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = $1[0m  [["visible", true]]
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE (visible = true)[0m
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE (visible = TRUE)[0m
+  [1m[36mSubject Load (0.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."position" = $1 AND "subjects"."visible" = $2[0m  [["position", 1], ["visible", true]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."position" = $1 AND "subjects"."visible" = $2[0m  [["position", 1], ["visible", true]]
+  [1m[36mSubject Load (0.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."position" = $1 AND "subjects"."visible" = $2[0m  [["position", 1], ["visible", false]]
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."position" = $1 AND "subjects"."visible" = $2 ORDER BY "subjects"."id" ASC LIMIT $3[0m  [["position", 1], ["visible", true], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."position" ASC[0m
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY position ASC[0m
+  [1m[36mSubject Load (1.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY position DESC[0m
+  [1m[36mSubject Load (0.7ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" LIMIT $1[0m  [["LIMIT", 5]]
+  [1m[36mSubject Load (0.8ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mSubject Load (0.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = $1 ORDER BY position ASC LIMIT $2 OFFSET $3[0m  [["visible", true], ["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 2]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 /* loading for inspect */ LIMIT $2[0m  [["id", 2], ["LIMIT", 11]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 2]]
+  [1m[36mSubject Load (0.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."name" = $1[0m  [["name", "Next Subject"]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."name" = $1 /* loading for inspect */ LIMIT $2[0m  [["name", "Next Subject"], ["LIMIT", 11]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = $1[0m  [["visible", true]]
+  [1m[36mSubject Load (0.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = $1 ORDER BY "subjects"."id" ASC LIMIT $2[0m  [["visible", true], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = $1 ORDER BY "subjects"."id" ASC LIMIT $2[0m  [["visible", true], ["LIMIT", 2]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSubject Load (0.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 2]]
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 2]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Create (63.1ms)[0m  [1m[32mINSERT INTO "pages" ("subject_id", "name", "permalink", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["subject_id", 1], ["name", "First Page"], ["permalink", "first"], ["position", 1], ["created_at", "2021-10-01 09:10:56.497525"], ["updated_at", "2021-10-01 09:10:56.497525"]]
+  [1m[36mTRANSACTION (23.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Destroy (1.3ms)[0m  [1m[31mDELETE FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (60.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Destroy (1.2ms)[0m  [1m[31mDELETE FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (28.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Destroy (1.1ms)[0m  [1m[31mDELETE FROM "subjects" WHERE "subjects"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Create (0.3ms)[0m  [1m[32mINSERT INTO "subjects" ("name", "visible", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "abc"], ["visible", true], ["created_at", "2021-10-01 09:18:55.146089"], ["updated_at", "2021-10-01 09:18:55.146089"]]
+  [1m[36mTRANSACTION (58.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (30.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (29.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1 LIMIT $2[0m  [["subject_id", 5], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (1.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1 LIMIT $2[0m  [["subject_id", 5], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1 LIMIT $2[0m  [["subject_id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPage Create (0.4ms)[0m  [1m[32mINSERT INTO "pages" ("subject_id", "name", "position", "visible", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["subject_id", 5], ["name", "p1"], ["position", 2], ["visible", true], ["created_at", "2021-10-01 09:22:16.351885"], ["updated_at", "2021-10-01 09:22:16.351885"]]
+  [1m[36mTRANSACTION (51.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1 LIMIT $2[0m  [["subject_id", 5], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (1.0ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1 LIMIT $2[0m  [["subject_id", 5], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1 LIMIT $2[0m  [["subject_id", 5], ["LIMIT", 1]]
+  [1m[36mPage Load (1.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (1.1ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPage Load (1.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1 LIMIT $2[0m  [["subject_id", 5], ["LIMIT", 1]]
+  [1m[36mPage Load (1.1ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[36mPage Load (1.0ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (1.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (1.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Destroy (1.2ms)[0m  [1m[31mDELETE FROM "pages" WHERE "pages"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (57.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPage Load (1.1ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPage Load (0.5ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSubject Create (0.7ms)[0m  [1m[32mINSERT INTO "subjects" ("name", "visible", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "last"], ["visible", true], ["created_at", "2021-10-01 10:25:47.677238"], ["updated_at", "2021-10-01 10:25:47.677238"]]
+  [1m[36mTRANSACTION (44.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1[0m  [["subject_id", 6]]
+  [1m[36mPage Load (1.1ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1[0m  [["subject_id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Create (0.3ms)[0m  [1m[32mINSERT INTO "pages" ("subject_id", "name", "permalink", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["subject_id", 6], ["name", "First Page"], ["permalink", "first"], ["position", 1], ["created_at", "2021-10-01 10:33:43.468845"], ["updated_at", "2021-10-01 10:33:43.468845"]]
+  [1m[36mTRANSACTION (44.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1[0m  [["subject_id", 6]]
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = $1[0m  [["subject_id", 6]]
+  [1m[36mPage Load (1.0ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Create (0.4ms)[0m  [1m[32mINSERT INTO "pages" ("subject_id", "name", "permalink", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["subject_id", 6], ["name", "Second Page"], ["permalink", "second"], ["position", 2], ["created_at", "2021-10-01 10:38:08.211036"], ["updated_at", "2021-10-01 10:38:08.211036"]]
+  [1m[36mTRANSACTION (38.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (51.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = $1[0m  [["subject_id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Update All (0.7ms)[0m  [1m[33mUPDATE "pages" SET "subject_id" = $1 WHERE "pages"."subject_id" = $2 AND "pages"."id" = $3[0m  [["subject_id", nil], ["subject_id", 6], ["id", 4]]
+  [1m[36mTRANSACTION (119.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPage Load (1.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdminUsersPagesJoin (20211001105343)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdminUsersPagesJoin (20211001105343)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (293.8ms)[0m  [1m[35mCREATE TABLE "admin_users_pages" ("admin_user_id" integer, "page_id" integer)[0m
+  [1m[35m (56.9ms)[0m  [1m[35mCREATE INDEX "index_admin_users_pages_on_admin_user_id_and_page_id" ON "admin_users_pages" ("admin_user_id", "page_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211001105343"]]
+  [1m[36mTRANSACTION (21.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Load (41.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Create (72.5ms)[0m  [1m[32mINSERT INTO "admin_users" ("first_name", "last_name", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Shaista"], ["last_name", "Abid"], ["created_at", "2021-10-01 11:06:25.680225"], ["updated_at", "2021-10-01 11:06:25.680225"], ["username", "shaistaabid"]]
+  [1m[36mTRANSACTION (17.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPage Load (0.8ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (1.0ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" INNER JOIN "admin_users_pages" ON "admin_users"."id" = "admin_users_pages"."admin_user_id" WHERE "admin_users_pages"."page_id" = $1[0m  [["page_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPage Load (0.5ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" INNER JOIN "admin_users_pages" ON "admin_users"."id" = "admin_users_pages"."admin_user_id" WHERE "admin_users_pages"."page_id" = $1[0m  [["page_id", 1]]
+  [1m[36mAdminUser Load (1.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users"[0m
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage::HABTM_AdminUsers Create (0.7ms)[0m  [1m[32mINSERT INTO "admin_users_pages" ("admin_user_id", "page_id") VALUES ($1, $2)[0m  [["admin_user_id", 1], ["page_id", 1]]
+  [1m[36mTRANSACTION (47.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAdminUser Load (1.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users"[0m
+  [1m[36mPage Load (1.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" INNER JOIN "admin_users_pages" ON "pages"."id" = "admin_users_pages"."page_id" WHERE "admin_users_pages"."admin_user_id" = $1[0m  [["admin_user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSectionEdits (20211001115431)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363530219080587145)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSectionEdits (20211001115431)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (176.2ms)[0m  [1m[35mCREATE TABLE "section_edits" ("id" bigserial primary key, "admin_user_id" integer, "section_id" integer, "summary" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (37.9ms)[0m  [1m[35mCREATE INDEX "index_section_edits_on_admin_user_id_and_section_id" ON "section_edits" ("admin_user_id", "section_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211001115431"]]
+  [1m[36mTRANSACTION (20.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363530219080587145)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSectionEdit Load (1.4ms)[0m  [1m[34mSELECT "section_edits".* FROM "section_edits" WHERE "section_edits"."admin_user_id" = $1[0m  [["admin_user_id", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSectionEdit Create (2.6ms)[0m  [1m[32mINSERT INTO "section_edits" ("admin_user_id", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["admin_user_id", 1], ["summary", "Test Edit"], ["created_at", "2021-10-01 12:19:12.213378"], ["updated_at", "2021-10-01 12:19:12.213378"]]
+  [1m[36mTRANSACTION (34.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSectionEdit Load (1.2ms)[0m  [1m[34mSELECT "section_edits".* FROM "section_edits"[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Load (1.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSection Load (65.8ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSectionEdit Load (0.4ms)[0m  [1m[34mSELECT "section_edits".* FROM "section_edits" WHERE "section_edits"."admin_user_id" = $1[0m  [["admin_user_id", 1]]
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT "sections".* FROM "sections" ORDER BY "sections"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  [1m[36mSection Load (1.2ms)[0m  [1m[34mSELECT "sections".* FROM "sections" ORDER BY "sections"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
