@@ -1,11 +1,11 @@
 class SectionsController < ApplicationController
-  layout =false
+  layout 'admin'
   def index
     @sections = Section.all
   end
 
   def show
-    #@section = Section.find(params[:id])
+    @section = Section.find(params[:id])
   end
 
   def new
@@ -14,9 +14,8 @@ class SectionsController < ApplicationController
 
   def create
     @section= Section.new(section_params)
-    puts @section
     if @section.save
-      
+      flash[:notice] ="Section created successfully......"
       redirect_to(sections_path)
     else
       render('new')
@@ -24,29 +23,29 @@ class SectionsController < ApplicationController
   end
 
   def edit
-    #@section = Section.find(params[:id])
+    @section = Section.find(params[:id])
   end
 
   def update
-    #@section = Section.find(params[:id])
+    @section = Section.find(params[:id])
 
-    #if @section.update(section_params)
-    #  flash[:notice] ="Section updated successfully......"
-    #  redirect_to(section_path(@section))
-    #else
-    #  render('edit')
-    #end
+    if @section.update(section_params)
+      flash[:notice] ="Section updated successfully......"
+      redirect_to(section_path(@section))
+    else
+      render('edit')
+    end
   end
 
   def delete
-    #@section = Section.find(params[:id])
+    @section = Section.find(params[:id])
   end
 
   def destroy
-    #@section = Section.find(params[:id])
-    #@section.destroy
-    #flash[:notice] ="Section '#{@section.name}' delete successfully......"
-    #redirect_to(sections_path)
+    @section = Section.find(params[:id])
+    @section.destroy
+    flash[:notice] ="Section '#{@section.name}' delete successfully......"
+    redirect_to(sections_path)
   end
 
   private

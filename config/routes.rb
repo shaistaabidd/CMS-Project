@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   
+  get 'subject/index'
+  get 'subject/show'
+  get 'subject/edit'
+  get 'subject/delete'
+  get 'pages/index'
+  get 'pages/show'
+  get 'pages/new'
+  get 'pages/edit'
+  get 'pages/delete'
   #get 'section/index'
   #get 'section/show'
   #get 'section/new'
@@ -15,6 +24,13 @@ Rails.application.routes.draw do
   end
 
   resources :sections do
+
+    member do
+      get :delete
+    end
+  end
+
+  resources :pages do
 
     member do
       get :delete
