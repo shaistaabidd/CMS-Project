@@ -2,6 +2,7 @@ class SubjectsController < ApplicationController
   layout 'admin'
   def index
     @subjects=Subject.sorted #Subject.all
+    #@page_title="All subjects"
   end
 
   def show

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   #get 'section/new'
   #get 'section/edit'
   #get 'section/delete'
+  get 'demo/escape_output'
+  get 'demo/strip_links'
   root 'demo#index'
   #get 'subjects/index'
   resources :subjects do
