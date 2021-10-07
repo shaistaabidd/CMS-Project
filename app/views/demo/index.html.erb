@@ -1,13 +1,8 @@
-<!---
-<script>
-  function jsRoar(name)
-  {
-    alert ('I am' + name + '.Hear me ROAR!');
-  }
-</script>
---->
+
 <h1>Hello World</h1>
 <a href="/demo/hello">Hello page 1</a> <br />
 <%=link_to('Hello Page 2', {:action => 'hello'})%><br /> 
 <%=link_to('Hello with parameters', {:action => 'hello', :page => 5, :id => 20})%><br /> 
-<%=link_to('Roar', '#', :onclick => "jsRoar('javascript');return true;")%>
+<%=link_to('Roar', '#', :id => "jsRoar") %>
+
+<%= javascript_pack_tag 'demo', 'data-turbolinks-track': 'reload' %>
