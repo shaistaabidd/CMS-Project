@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
   layout 'admin'
   def index
+    logger.debug("***Testing logger***")
     @subjects=Subject.sorted #Subject.all
     #@page_title="All subjects"
   end
@@ -8,7 +9,9 @@ class SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
   end
-
+ def showAllPages
+  @pages=Subject.last.pages
+ end
   def new
     @subject=Subject.new
     @subject_count=Subject.count+1

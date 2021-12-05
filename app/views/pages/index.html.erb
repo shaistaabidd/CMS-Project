@@ -1,6 +1,8 @@
+<%= link_to("BACK TO LIST", subjects_path, :class => 'back-link')%>
+
 <div class="pages index">
   <h1>Pages</h1>
-  <%= link_to("Add new Page",'pages/new',:class => 'action new')%>
+  <%= link_to("Add new Page",pages_new_path(:subject_id => @subject.id),:class => 'action new')%>
   <table class="listing" summary="Page list">
     <tr class="header">
       <th>#</th>
@@ -20,9 +22,9 @@
       <td class="center"><%= page.visible ? 'Yes':'No'%></td>
 
       <td class = "action">
-        <%=link_to("Show",page_path(page),:class=>'acton show')%>
-        <%=link_to("Edit",edit_page_path(page),:class=>'acton edit')%>
-        <%=link_to("Delete",delete_page_path(page),:class=>'acton delete')%>
+        <%=link_to("Show",subject_page_path(page),:class=>'action show')%>
+        <%=link_to("Edit",edit_subject_page_path(page),:class=>'acton edit')%>
+        <%=link_to("Delete", delete_subject_page_path(page),:class=>'acton delete')%>
       </td>
     </tr>
     <%end%>

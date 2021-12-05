@@ -18,9 +18,11 @@
       <td class="center"><%= status_tag(subject.visible) %></td>
       <td class="center"><%= subject.pages.size%></td>
       <td class = "action">
+        <%=link_to("View Pages",subject_pages_path(subject.id),:class=>'action show')%>
         <%=link_to("Show","subjects/#{subject.id}",:class=>'action show')%>  <!--- subject_path(subject.id) --->
         <%=link_to("Edit","subjects/#{subject.id}/edit",:class=>'action edit')%> <!--- edit_subject_path(subject.id) --->
         <%=link_to("Delete","subjects//#{subject.id}/delete",:class=>'action delete')%> <!--- edit_subject_path(subject.id) --->
+        <%= link_to "view", subject_path(subject.id), remote: true, :"data-toggle" => 'modal', :"data-target" => '#myModal',class: 'static-popup-link' %>
       </td>
     </tr>
     <%end%>

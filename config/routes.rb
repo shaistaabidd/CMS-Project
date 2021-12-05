@@ -14,12 +14,18 @@ Rails.application.routes.draw do
   #get 'section/new'
   #get 'section/edit'
   #get 'section/delete'
-  get 'demo/escape_output'
+  get 'demo/escapes_output'
   get 'demo/strip_links'
   root 'demo#index'
+  get 'all_pages',to: "subjects#showAllPages"
   #get 'subjects/index'
   resources :subjects do
+    resources :pages do
 
+      member do
+        get :delete
+      end
+    end
     member do
       get :delete
     end
@@ -32,12 +38,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :pages do
-
-    member do
-      get :delete
-    end
-  end
+  
 
   get 'demo/index'
   get 'demo/hello'
