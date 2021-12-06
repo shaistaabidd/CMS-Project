@@ -8,6 +8,10 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
+    respond_to :html, :js
+  end
+  def modal
+    @subject = Subject.find(params[:id])
   end
  def showAllPages
   @pages=Subject.last.pages
@@ -16,15 +20,22 @@ class SubjectsController < ApplicationController
     @subject=Subject.new
     @subject_count=Subject.count+1
   end
-
+  def submit
+    
+    render :json => {
+          :location => url_for(:controller => 'subjects', :action => 'new'),
+          :flash => {:notice => "Subject created successfully......"}
+        }
+    
+  end
   def create
     @subject= Subject.new(subject_params)
     if @subject.save
       flash[:notice] ="Subject created successfully......"
-      redirect_to("/subjects")
+      #redirect_to("/subjects")
     else
       @subject_count=Subject.count+1
-      render('new')
+      #render('new')
     end
   end
 

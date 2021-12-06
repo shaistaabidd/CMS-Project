@@ -18,7 +18,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_for(@subject,:method => 'post')do |f| %>
+        <%= form_for(@subject, :remote => true,:authenticity_token => true, :html => {:id => "modal-form"})do |f| %>
             <%= render(:partial => 'form',:locals => {:f => f}) %>
              
       </div>
@@ -41,3 +41,25 @@
   </div>
   <%end%>
 </div>
+<script type="text/javascript">
+var form = document.getElementById('modal-form');
+  form.addEventListener('submit', function(ev) {
+    ev.preventDefault();
+    var	name =document.getElementById('subject-name')
+			var	visible = $('subject-visible')
+    $.ajax({
+      type:"GET",
+      dataType: "json",
+      url:"<%= subject_submit_path %>",
+      data: { name:name, visible:visible },	 
+      success: function(data) {
+        //or window.location.replace (data.location) ;
+        $(this).modal('hide');
+      }
+    }).then(function(response){
+      console.log(response);
+      
+    })
+    
+    });
+</script>
