@@ -1,5 +1,5 @@
 class SubjectsController < ApplicationController
-  layout 'admin'
+ 
   def index
     logger.debug("***Testing logger***")
     @subjects=Subject.sorted #Subject.all
@@ -11,14 +11,15 @@ class SubjectsController < ApplicationController
     respond_to :html, :js
   end
   def modal
-    @subject = Subject.find(params[:id])
+    @subject = Subject.new
+    
   end
  def showAllPages
   @pages=Subject.last.pages
  end
   def new
     @subject=Subject.new
-    @subject_count=Subject.count+1
+    
   end
   def submit
     
@@ -30,12 +31,19 @@ class SubjectsController < ApplicationController
   end
   def create
     @subject= Subject.new(subject_params)
-    if @subject.save
-      flash[:notice] ="Subject created successfully......"
-      #redirect_to("/subjects")
-    else
-      @subject_count=Subject.count+1
-      #render('new')
+    respond_to do |format|
+      if @subject.save
+
+        flash[:notice] ="Subject created successfully......"
+        format.html { redirect_to request.referer, notice: "Subject created successfully......"}
+        format.js{}
+        #redirect_to("/subjects")
+      else
+        @subject_count=Subject.count+1
+        format.html { redirect_to request.referer, alert: "Something went wrong"}
+        format.js{}
+        #render('new')
+      end
     end
   end
 
@@ -69,6 +77,9 @@ class SubjectsController < ApplicationController
   
   private
   def subject_params
-    params.required(:subject).permit(:name,:position,:visible,:created_at)
+    p "\n\n\n\n"
+    p params.require(:subject).permit(:name)
+    mmmmmmm
+    params.required(:subject).permit(:name,:position,:visible,:created_at,:zip_code)
   end
 end

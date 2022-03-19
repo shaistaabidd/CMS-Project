@@ -2,8 +2,9 @@
 <div class="subjects index">
   <h1>Subjects</h1>
   <%=image_tag('plus_sign.png', :size => '11x11', :alt => '+')%>
-  <%= link_to("Add new Subject", 'subjects/new',:class => 'action new')%>
-  <table class="listing" summary="Subject list">
+  <%= link_to("Add new Subject",new_subject_path, remote: true)%>
+  <div id="subjectModal"></div>
+  <table class="listing" summary="Subject list" id="myTable">
     <tr class="header">
       <th>#</th>
       <th>Subject</th>
@@ -22,8 +23,8 @@
         <%=link_to("Show","subjects/#{subject.id}",:class=>'action show')%>  <!--- subject_path(subject.id) --->
         <%=link_to("Edit","subjects/#{subject.id}/edit",:class=>'action edit')%> <!--- edit_subject_path(subject.id) --->
         <%=link_to("Delete","subjects//#{subject.id}/delete",:class=>'action delete')%> <!--- edit_subject_path(subject.id) --->
-        <%= link_to "view", subject_modal_path(subject.id), remote: true, :"data-toggle" => 'modal', :"data-target" => '#myModal',class: 'static-popup-link' %>
-      </td>
+        
+        </td>
     </tr>
     <%end%>
   </table>
