@@ -30,17 +30,16 @@ class AdminUser < ApplicationRecord
                          :uniqueness => true
   validates :email,       :presence => true,
                          :length => {:maximum => 100},
-                         :formate => EMAIL_REGEX,
                          :confirmation => true
                                                 
-  validate :username_is_allowed
+  # validate :username_is_allowed
   validate :no_new_users_on_monday, :on => create
   private
-  def username_is_allowed
-    if FORBIDDEN_USERNAMES.include?(username)
-      errors.add(:username,"has been restricted from use")
-    end
-  end
+  # def username_is_allowed
+  #   if FORBIDDEN_USERNAMES.include?(username)
+  #     errors.add(:username,"has been restricted from use")
+  #   end
+  # end
   def no_new_users_on_monday
     if Time.now.wday==1
       errors.add(:base, "No New User on Monday!")

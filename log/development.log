@@ -65997,3 +65997,15 @@ Processing by DemoController#index as HTML
 Completed 200 OK in 10ms (Views: 8.5ms | Allocations: 7839)
 
 
+Started GET "/" for ::1 at 2022-03-19 20:19:32 +0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DemoController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering demo/index.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered demo/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 7348)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 11407)
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 15102)
+
+
