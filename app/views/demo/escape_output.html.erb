@@ -1,0 +1,8 @@
+<% evil_string="<script>alert('Hello');</script>"%>
+<% good_string="<strong> Welcome to CMS</strong>"%>
+
+<!---<%= raw evil_string%> <br /> --->
+<!---<%= raw good_string%><br />  --->
+
+<%=raw evil_string.html_safe%> <br />
+<%=raw good_string.html_safe%><br />

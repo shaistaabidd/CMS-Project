@@ -1,0 +1,7 @@
+<% if @subject.errors.any? %>
+alert("Something went wrong!");
+<% else %>
+$('#myModal').modal('hide');
+alert("Subject created successfully!");
+<% end %>
+

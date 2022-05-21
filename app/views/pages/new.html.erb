@@ -1,0 +1,10 @@
+<div class="Page new">
+  <h1>Create Page</h1>
+  <%= form_with(model: [@subject,page])do |f| %>
+  <%= render(:partial => 'form2',:locals => {:f => f}) %>
+  <div class="form-buttons">
+    <%= f.submit("Create Page")%>
+    <%=@page.errors.full_messages %>
+  </div>
+  <%end%>
+</div>
